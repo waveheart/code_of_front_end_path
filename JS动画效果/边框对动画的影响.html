@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>border边框对动画的影响</title>
+<style>
+div { width:200px; height:200px; background:red; border:1px solid blue; font-size:20px; color:white;}
+</style>
+<script>
+window.onload = function(){
+    startmove();
+    }
+function startmove(){
+    setInterval(function(){
+        var odiv = document.getElementsByTagName('div')[0];
+        console.log(odiv.style.width);
+        odiv.style.width = parseInt(getStyle(odiv,'width'))-1+'px';
+        odiv.style.fontSize = parseInt(getStyle(odiv,'fontSize'))+1+'px';
+        },200)
+    }
+function getStyle(obj,attr){
+    if(obj.currentStyle){
+        return obj.currentStyle[attr];
+        }
+    else{
+        return getComputedStyle(obj,false)[attr];
+        }
+    }
+</script>
+</head>
+
+<body>
+<div>font-size</div>
+</body>
+</html>

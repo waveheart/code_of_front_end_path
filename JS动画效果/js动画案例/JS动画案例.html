@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS动画案例</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/move.js"></script>
+</head>
+
+<body>
+<div class="container" id="container">
+    <ul>
+    	<a href="#"><img src="images/food.png" alt="x"><li>食品</li></a>
+        <a href="#"><img src="images/game.png" alt="x"><li>游戏</li></a>
+        <a href="#"><img src="images/insurance.png" alt="x"><li>保险</li></a>
+        <a href="#"><img src="images/lottery.png" alt="x"><li>彩票</li></a>
+        <a href="#"><img src="images/movie.png" alt="x"><li>电影</li></a>
+        <a href="#"><img src="images/travel.png" alt="x"><li>旅行</li></a>
+        
+    </ul>
+</div>
+<script>
+    var container = document.getElementById('container'),
+        as = container.getElementsByTagName('a');
+    window.onload = function(){
+        for(var i=0;i<as.length;i++){
+            as[i].onmouseenter = function(){
+                
+                var img = this.getElementsByTagName('img')[0];
+                startmove(img,{top:-30,opacity:20},function(){
+                    img.style.top = 30+'px';
+                    startmove(img,{top:18,opacity:100});
+                    })
+                }
+            }
+        }
+    
+    
+</script>
+</body>
+</html>

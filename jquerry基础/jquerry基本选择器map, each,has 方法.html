@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>认识table表标签</title>
+<script src="../../jquery/jquery-3.2.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+
+  //map 方法
+  var ids = $("tbody td:nth-child(1)").map(function(){
+    return $(this).html();
+  }).get();
+  console.log(ids[0]);
+
+  // has 方法
+  $("li").has('ul').css('color', 'red');
+
+  // each 方法
+  $('button')[0].onclick=function(){
+    alert('123')
+    $('#testEach>li').each(function() {
+      alert(n+'.'+$(this).html())
+    });
+  }
+
+});
+
+	
+</script>
+
+</head>
+<body>
+
+<table>
+  <tbody>
+    <thead>
+      <th>班级</th>
+      <th>学生数</th>
+      <th>平均成绩</th>
+    </thead>
+    <tr>
+      <td>一班</td>
+      <td>30</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>二班</td>
+      <td>35</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>三班</td>
+      <td>32</td>
+      <td>80</td>
+    </tr>
+
+
+
+
+  </tbody>
+</table>
+
+<ul>
+  <li>aaa</li>
+  <li>bbb</li>
+  <li>
+    <ul>
+      <li>ccc1</li>
+      <li>ccc2</li>
+    </ul>
+  </li>
+  <li>ddd</li>
+</ul>
+
+<button id="button">alert the value of each list item</button>
+<ul id="testEach">
+  <li>coffee</li>
+  <li>milk</li>
+  <li>soda</li>
+</ul>
+</body>
+</html>

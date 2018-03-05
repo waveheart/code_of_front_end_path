@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>混合布局</title>
+<style type="text/css">
+body{ margin:0; padding:0}
+.top{ height:50px; background-color:#B9B8F4; margin:0 auto}
+.head{ height:50px; background-color:#EB0C10; width:800px; margin:0 auto;}
+.mid{ height:800px; background-color:#F0B0BC; width:800px; margin:0 auto;}
+.foot{ height:100px; background-color:#A5CD99; width:800px; margin:0 auto;}
+.left{ width:200px; height:800px; float:left; background-color:#F0E68D;}
+.right{ width:600px; height:800px; float:right; background-color:#F83F5C;}
+.r_t{ width:600px; background-color:#0D43F0; height:200px; float:left;}
+.r_m{ width:600px; background-color:#BB9F9F;height:200px; float:left;}
+.r_b{ width:600px; background-color:#E1A204;height:200px;float:left;}
+</style>
+</head>
+
+<body>
+<div class="top">
+	<div class="head">head</div>
+</div>
+<div class="mid">
+	<div class="left">left</div>
+    <div class="right">
+    	<div class="r_t">top</div>
+        <div class="r_m">middle</div>
+        <div class="r_b">botoom</div>
+    </div>
+</div>
+<div class="foot">right</div>
+</body>
+</html>

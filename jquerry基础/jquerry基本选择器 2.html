@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>认识table表标签</title>
+<script src="../../jquery/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function() {
+
+	//指定后代选择器
+	$("tr>td:nth-child(2)").css('color', 'red');
+	$("tr:nth-child(2)").css('background', 'yellow');
+
+	//奇偶数选择器
+	$("tbody>tr:first-child>td:even").css('color', 'blue');
+
+	//gt 和 lt 选择器，即greater than 和less than 选择器
+	
+	$("tbody>tr:last-child>td:gt(1)").css('color', 'green');
+
+});
+	
+</script>
+</head>
+<body>
+<table>
+  <tbody>
+    <thead>
+      <th>班级</th>
+      <th>学生数</th>
+      <th>平均成绩</th>
+    </thead>
+    <tr>
+      <td>一班</td>
+      <td>30</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>二班</td>
+      <td>35</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>三班</td>
+      <td>32</td>
+      <td>80</td>
+    </tr>
+
+
+
+
+  </tbody>
+</table>
+</body>
+</html>

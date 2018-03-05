@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>简单动画</title>
+<style>
+* { margin:0px; padding:0px;}
+.box { width:200px; height:200px; background-color:red; position:relative; top:20px;left:-200px;}
+.subbox { width:20px; height:50px; background-color:blue; text-align:center; line-height:25px; position:absolute; right:-20px; top:50%; margin-top:-25px;}
+</style>
+<script>
+
+window.onload = function(){
+    var box = document.getElementById('box'),
+        timer = null;
+    //鼠标放上开始走    
+    box.onmouseover = function(){
+        startmove(0);
+    }    
+    box.onmouseout = function(){
+        startmove(-200);
+    }  
+}
+
+var timer=null;
+function startmove(itarget){
+    if(timer){
+        clearInterval(timer);
+    }
+    timer = setInterval(function(){
+        var spead = 0;
+        if(box.offsetLeft<itarget){
+            speed = 10;
+        }else{
+            speed = -10;
+        }
+        if(box.offsetLeft==itarget){
+            clearInterval(timer);
+        }
+        else{
+            box.style.left = box.offsetLeft+speed+'px';
+        }
+    },50)
+}
+</script>
+</head>
+<div class="box" id="box">
+    <div class="subbox">拖块</div>
+</div>
+<style>
+*{ wi}
+</style>
+<body>
+</body>
+</html>

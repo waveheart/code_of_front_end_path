@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+	<script src="../../jquery/jquery-3.2.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			//后代选择器
+			$("li a").css('background', 'yellow');
+
+			//直接后代选择器
+			$(".mylist>li>a").css('color', 'white');
+
+			//属性选择器
+			//$("a[href^='http']").css('background', 'red');
+			
+			//has 选择器
+			$(".mylist ul li:has(a)").css('background', 'blue');
+
+			//属性选择器，以某结尾
+			$("a[href$=pdf]").css('fontSize', '24px');
+
+			//相邻兄弟选择器
+			$("#li2+li").css('lineHeight', '50px');
+
+			//兄弟选择器
+			$("#li2~li").css('fontStyle', 'italic');
+
+			//first 选择器
+			//alert($("li:first").html())
+			
+			//last 选择器 注意下面两个区别(CSS3没有这个选择器，只有first-child first-of-type)
+			//alert($(".mylist>li:last").html())
+			//alert($("li:last").html())
+			
+			//首儿子选择器
+			//alert($("li:first-child").length);
+			
+			//独子选择器
+			alert($("ul:only-child").length);
+		});
+	</script>
+</head>
+<body>
+<ul class="mylist">
+	<li>
+		<a href="http://www.jquery.com">css</a>
+		<ul>
+			<li>
+				<a href="css1.txt">css1</a>
+				<a href="#">空值测试</a>
+			</li>
+			<li id="li2">
+				<a href="css2.pdf">css2</a>
+			</li>
+			<li>
+				<a href="css3.html">css3</a>
+			</li>
+			<li>
+				Basia
+			</li>
+		</ul>
+	</li>
+	<li>
+		jqery
+		<ul>
+			<li>Custom</li>
+			<li>Form</li>
+		</ul>
+	</li>
+</ul>
+</body>
+</html>

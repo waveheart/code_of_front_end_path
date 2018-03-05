@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任意属性值</title>
+<style>
+* { margin:0; padding:0;}
+ul,li { list-style:none;}
+ul > li { width:200px; height:100px; background:yellow; margin-bottom:20px; opacity:0.5; filter:alpha(opacity:50);}
+</style>
+<script>
+window.onload = function(){
+    //var li = document.getElementsByTagName('li');
+    //for(var i=0; i<lis.length;i++){
+//        lis[i].timer = null;
+//        lis[i].onmouseover = function(){
+//            startmove(this,400);
+//            }
+//        lis[i].onmouseout = function(){
+//            startmove(this,200);
+//            }    
+//        }
+    var li1 = document.getElementById('li1'),
+        li2 = document.getElementById('li2');
+    li1.onmouseover = function(){
+        startmove(this,100,'opacity');
+        }
+    li1.onmouseout = function(){
+        startmove(this,50,'opacity');
+        }
+        
+    li2.onmouseover = function(){
+        startmove(this,300,'height');
+        }
+    li2.onmouseout = function(){
+        startmove(this,100,'height');
+        }
+    }
+
+function startmove(obj,itarget,attr){
+    //清除计时器
+    clearInterval(obj.timer);
+    //添加计时器
+    obj.timer = setInterval(function(){
+        //定义当前值
+        var icur=0;
+        //处理透明度的特殊情况
+        if(attr=='opacity'){
+            icur = Math.round(parseFloat(getStyle(obj,attr))*100);
+            }
+        else{
+            icur = parseInt(getStyle(obj,attr));
+            }
+        //var icur = parseInt(getStyle(obj,attr));
+        //定义速度
+        var speed = (itarget-icur)/8;
+        //算速度
+        speed = speed>0?Math.ceil(speed):Math.floor(speed);
+        //到达目标停止，没到达目标就继续；
+        if(icur==itarget){
+            clearInterval(obj.timer);
+            }else{
+                if(attr=='opacity'){
+                    obj.style[attr]='filter:alpha(opacity:'+(icur+speed)+')';
+                    obj.style[attr]= (icur+speed)/100;
+                    }
+                 else{
+                     obj.style[attr] = (icur+speed)+'px';
+                     }
+                }
+        },50)
+    }
+    
+//定义获取元素样式的函数    
+function getStyle(obj,attr){
+    if(obj.currentStyle){
+        return obj.currentStyle[attr];
+        }
+    else {
+        return getComputedStyle(obj,false)[attr];
+        }    
+    }
+    
+</script>
+</head>
+
+<body>
+<ul>
+	<li id="li1"></li>
+	<li id="li2"></li>
+</ul>
+</body>
+</html>

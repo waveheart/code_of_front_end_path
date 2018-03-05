@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* CSS Document */
+div,img{
+  margin:0;
+  padding:0;
+  border:0;
+}
+.content1 {
+	background: url(image/new.jpg) no-repeat;
+	width: 1004px;
+	height: 613px;
+	margin: 0 auto;
+	position: relative;
+}
+#show {
+	position: absolute;
+	top: 108px;
+	left: 14px;
+	color: #F00;
+}
